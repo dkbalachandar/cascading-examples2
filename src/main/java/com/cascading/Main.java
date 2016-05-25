@@ -21,13 +21,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hdfs Job is started");
         //input and output path
         String inputPath = args[0];
         String outputPath = args[1];
-
-        System.out.println("inputPath::" + inputPath);
-        System.out.println("outputPath::" + outputPath);
 
         Properties properties = new Properties();
         AppProps.setApplicationJarClass(properties, Main.class);
@@ -43,7 +39,6 @@ public class Main {
         HadoopFlowConnector flowConnector = new HadoopFlowConnector(properties);
         Flow flow = flowConnector.connect("Unique Job", inTap, outTap, uniquePipe);
         flow.complete();
-        System.out.println("Hdfs Job is completed");
     }
 }
 
